@@ -37,13 +37,14 @@ MindSarthi AI is an intelligent mental health support and assistance platform th
 - ReportLab (PDF Generation)
 
 ---
+<img width="1920" height="1080" alt="Screenshot (539)" src="https://github.com/user-attachments/assets/e8ce095e-cbb8-4fc9-b30c-536a970b0c15" />
+<img width="1920" height="1080" alt="Screenshot (538)" src="https://github.com/user-attachments/assets/49688ee6-4556-4f05-84cc-ecf9924faa13" />
+<img width="1920" height="1080" alt="Screenshot (537)" src="https://github.com/user-attachments/assets/899e0f72-2e6d-49d3-a714-76926db4dc40" />
+<img width="1920" height="1080" alt="Screenshot (533)" src="https://github.com/user-attachments/assets/c123a5ed-b0a2-4fde-8a73-0fb3317a0647" />
 
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/Ritikakumtia/mental-health-support-and-assistance-platform.git
-cd mental-health-support-and-assistance-platform<img width="1920" height="1080" alt="Screenshot (539)" src="https://github.com/user-attachments/assets/e8ce095e-cbb8-4fc9-b30c-536a970b0c15" />
-<img width="1920" height="1080" alt="Screenshot (538)" src="https://github.com/user-attachments/assets/49688ee6-4556-4f05-84cc-ecf9924faa13" />
-<img width="1920" height="1080" alt="Screenshot (537)" src="https://github.com/user-attachments/assets/899e0f72-2e6d-49d3-a714-76926db4dc40" />
-<img width="1920" height="1080" alt="Screenshot (533)" src="https://github.com/user-attachments/assets/c123a5ed-b0a2-4fde-8a73-0fb3317a0647" />
+cd mental-health-support-and-assistance-platform\
