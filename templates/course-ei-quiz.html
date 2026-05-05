@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Quiz - Emotional Intelligence - MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <div class="card shadow-lg rounded-4 mb-5 border-0">
+    <div class="card-body text-center py-5" style="background: linear-gradient(120deg, #e0f7ff 0%, #e2eafc 100%);">
+      <div class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Final Quiz</div>
+      <h1 class="display-5 fw-bold mb-3" style="color:#3b4a6b;">Emotional Intelligence - Final Quiz</h1>
+      <p class="lead text-muted mb-2">Test your knowledge and complete the course with confidence.</p>
+      <p class="text-muted">Answer the questions carefully to earn your certificate and track your learning progress.</p>
+    </div>
+  </div>
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+<form action="/quiz_result/ei" method="post">
+      <div class="mb-4">
+        <h5>1. Emotional Intelligence (EQ) is the ability to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="a" required>
+          <label class="form-check-label">Suppress all emotions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="b">
+          <label class="form-check-label">Understand, use, and manage emotions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="c">
+          <label class="form-check-label">Control others' emotions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="d">
+          <label class="form-check-label">Avoid feeling anything</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Self-awareness in EQ involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="a" required>
+          <label class="form-check-label">Ignoring your feelings</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="b">
+          <label class="form-check-label">Recognizing your own emotions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="c">
+          <label class="form-check-label">Expressing emotions publicly</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="d">
+          <label class="form-check-label">Pretending not to feel</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. Self-regulation means:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="a" required>
+          <label class="form-check-label">Letting emotions control you</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="b">
+          <label class="form-check-label">Managing your emotional responses</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="c">
+          <label class="form-check-label">Acting impulsively</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="d">
+          <label class="form-check-label">Forcing feelings away</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Empathy is the ability to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="a" required>
+          <label class="form-check-label">Feel sorry for others</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="b">
+          <label class="form-check-label">Understand and share others' feelings</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="c">
+          <label class="form-check-label">Agreeing with everything</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="d">
+          <label class="form-check-label">Fixing others' problems</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>5. Social skills in EQ include:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="a" required>
+          <label class="form-check-label">Avoiding social interactions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="b">
+          <label class="form-check-label">Effective communication and relationship building</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="c">
+          <label class="form-check-label">Ignoring others' needs</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="d">
+          <label class="form-check-label">Only talking more</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>6. High EQ helps in:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="a" required>
+          <label class="form-check-label">Career advancement</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="b">
+          <label class="form-check-label">Only personal relationships</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="c">
+          <label class="form-check-label">Only useful in social media</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="d">
+          <label class="form-check-label">Causes stress</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>7. Mindfulness improves EQ by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="a" required>
+          <label class="form-check-label">Increasing distraction</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="b">
+          <label class="form-check-label">Enhancing self-awareness</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="c">
+          <label class="form-check-label">Making choices quickly</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="d">
+          <label class="form-check-label">Avoiding inner reflection</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>8. EQ can be developed through:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="a" required>
+          <label class="form-check-label">Practice and feedback</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="b">
+          <label class="form-check-label">Only natural talent</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="c">
+          <label class="form-check-label">Genetics alone</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="d">
+          <label class="form-check-label">By waiting for others</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>9. Low EQ can lead to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="a" required>
+          <label class="form-check-label">Better relationships</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="b">
+          <label class="form-check-label">Conflicts and misunderstandings</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="c">
+          <label class="form-check-label">Better concentration</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="d">
+          <label class="form-check-label">No impact at all</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>10. EQ is important for leadership because:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="a" required>
+          <label class="form-check-label">It helps motivate teams</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="b">
+          <label class="form-check-label">Only technical skills matter</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="c">
+          <label class="form-check-label">Makes work harder</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="d">
+          <label class="form-check-label">Reduces team performance</label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Quiz</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 MindSarthi AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

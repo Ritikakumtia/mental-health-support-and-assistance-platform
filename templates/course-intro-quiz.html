@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Quiz - Introduction to Psychology - MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <div class="card shadow-lg rounded-4 mb-5 border-0">
+    <div class="card-body text-center py-5" style="background: linear-gradient(120deg, #e0f7ff 0%, #e2eafc 100%);">
+      <div class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Final Quiz</div>
+      <h1 class="display-5 fw-bold mb-3" style="color:#3b4a6b;">Introduction to Psychology - Final Quiz</h1>
+      <p class="lead text-muted mb-2">Test your knowledge and complete the course with confidence.</p>
+      <p class="text-muted">Answer the questions carefully to earn your certificate and track your learning progress.</p>
+    </div>
+  </div>
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+<form action="/quiz_result/intro" method="post">
+      <div class="mb-4">
+        <h5>1. Psychology is the scientific study of:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="a" required>
+          <label class="form-check-label">Rocks and minerals</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="b">
+          <label class="form-check-label">Mind and behavior</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="c">
+          <label class="form-check-label">Behavior and society</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="d">
+          <label class="form-check-label">Plants and animals</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Who is considered the father of modern psychology?</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="a" required>
+          <label class="form-check-label">Sigmund Freud</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="b">
+          <label class="form-check-label">Wilhelm Wundt</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="c">
+          <label class="form-check-label">B.F. Skinner</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="d">
+          <label class="form-check-label">Carl Jung</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. The scientific method in psychology involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="a" required>
+          <label class="form-check-label">Guessing answers</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="b">
+          <label class="form-check-label">Systematic observation and testing</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="c">
+          <label class="form-check-label">Collecting random opinions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="d">
+          <label class="form-check-label">Memorizing facts</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Cognition refers to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="a" required>
+          <label class="form-check-label">Physical movements</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="b">
+          <label class="form-check-label">Mental processes like thinking and memory</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="c">
+          <label class="form-check-label">Emotional expressions only</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="d">
+          <label class="form-check-label">Physical strength</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>5. Motivation is best described as:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="a" required>
+          <label class="form-check-label">A state of rest</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="b">
+          <label class="form-check-label">Drives that energize and direct behavior</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="c">
+          <label class="form-check-label">A feeling of pleasure</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="d">
+          <label class="form-check-label">A permanent state</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>6. Emotions are:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="a" required>
+          <label class="form-check-label">Purely logical thoughts</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="b">
+          <label class="form-check-label">Feelings and affective states</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="c">
+          <label class="form-check-label">Only physical sensations</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="d">
+          <label class="form-check-label">A single mood</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>7. Personality refers to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="a" required>
+          <label class="form-check-label">Physical appearance only</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="b">
+          <label class="form-check-label">Unique patterns of thinking, feeling, and behaving</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="c">
+          <label class="form-check-label">How you look in public</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="d">
+          <label class="form-check-label">A group identity</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>8. Social psychology primarily studies:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="a" required>
+          <label class="form-check-label">How people behave in groups</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="b">
+          <label class="form-check-label">Individual personality traits</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="c">
+          <label class="form-check-label">The brain's anatomy</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="d">
+          <label class="form-check-label">Personality traits</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>9. Abnormal psychology focuses on:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="a" required>
+          <label class="form-check-label">Normal everyday behavior</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="b">
+          <label class="form-check-label">Patterns of behavior that are atypical or harmful</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="c">
+          <label class="form-check-label">Everyday habits</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="d">
+          <label class="form-check-label">Social norms</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>10. Psychotherapy is:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="a" required>
+          <label class="form-check-label">A type of surgery</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="b">
+          <label class="form-check-label">Talk therapy to treat mental health issues</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="c">
+          <label class="form-check-label">A medication</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="d">
+          <label class="form-check-label">A form of exercise</label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Quiz</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 MindSarthi AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

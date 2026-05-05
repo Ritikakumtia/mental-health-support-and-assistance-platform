@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hospitals — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 50px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold" style="color:#3b4a6b;">Find Hospitals</h1>
+          <p class="lead" style="color:#164a5f;">Locate mental health hospitals and facilities in your area.</p>
+          <p class="mt-3" style="color:#5a6c7d;">Search for hospitals in India by entering a city name. We provide information on psychiatric care centers, emergency mental health services, and specialized treatment facilities to help you find the support you need.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5>Hospital Search</h5>
+            <form id="searchForm">
+              <div class="mb-3">
+                <label for="location" class="form-label">Enter Location (e.g., city name)</label>
+                <input type="text" class="form-control" id="location" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div id="results" class="mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const location = document.getElementById('location').value;
+      fetch(`/api/search/hospitals?q=${encodeURIComponent(location)}`)
+        .then(response => response.json())
+        .then(data => {
+          const resultsDiv = document.getElementById('results');
+          if (data.error) {
+            resultsDiv.innerHTML = `<p class="text-danger">${data.error}</p>`;
+          } else {
+            let html = '<h6>Results:</h6><ul class="list-group">';
+            data.forEach(hospital => {
+              html += `<li class="list-group-item">
+                <strong>${hospital.name}</strong><br>
+                Address: ${hospital.address || 'N/A'}<br>
+                Phone: ${hospital.phone || 'N/A'}<br>
+                Location: ${hospital.lat}, ${hospital.lon}
+              </li>`;
+            });
+            html += '</ul>';
+            resultsDiv.innerHTML = html;
+          }
+        })
+        .catch(error => {
+          document.getElementById('results').innerHTML = '<p class="text-danger">Error fetching results.</p>';
+        });
+    });
+  </script>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

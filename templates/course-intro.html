@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Introduction to Psychology — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="badge bg-primary text-white px-3 py-2 rounded-pill mb-3">Course</div>
+          <h1 class="display-4 fw-bold mb-3" style="color:#3b4a6b;">Introduction to Psychology</h1>
+          <p class="lead fw-semibold mb-3" style="color:#667eea;">6 Modules | 4 Weeks</p>
+          <p style="color:#5a6c7d; font-size:1.05rem; line-height:1.8;">Explore this course through focused lessons, self-check quizzes and practical insights.</p>
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-info text-dark">Certificate Ready</span>
+            <span class="badge bg-success">Self-paced</span>
+            <span class="badge bg-warning text-dark">Practice Quizzes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="module card mb-5 shadow-lg rounded-4" id="module1">
+      <div class="card-body">
+      <h2>Module 1: What is Psychology?</h2>
+      <p>Psychology is the scientific study of the mind and behavior. It explores how we think, feel, and act. Psychologists use scientific methods to understand and explain human behavior.</p>
+      <p>Key concepts: Mind, behavior, scientific method, observation, experimentation.</p>
+      <h3>Quiz</h3>
+      <form id="quiz1">
+        <div class="mb-3">
+          <p>1. What is psychology primarily concerned with?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">The study of rocks</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">The study of the mind and behavior</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">The study of animals</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz1', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module2">
+      <div class="card-body">
+      <h2>Module 2: History of Psychology</h2>
+      <p>Psychology as a science began in the late 19th century. Wilhelm Wundt established the first psychology laboratory in 1879. Key figures include Sigmund Freud, Ivan Pavlov, and B.F. Skinner. Major perspectives: Psychodynamic, Behavioral, Cognitive, Humanistic. These perspectives shape how we understand human behavior and mental processes, providing different lenses through which psychologists analyze thoughts, emotions, and actions.</p>
+      <h3>Quiz</h3>
+      <form id="quiz2">
+        <div class="mb-3">
+          <p>1. Who established the first psychology laboratory?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Sigmund Freud</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Wilhelm Wundt</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Ivan Pavlov</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz2', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module3">
+      <div class="card-body">
+      <h2>Module 3: Research Methods in Psychology</h2>
+      <p>Psychologists use various research methods to study behavior. Experimental methods involve manipulating variables to observe effects, controlling for confounding factors. Observational studies watch behavior in natural settings without intervention. Surveys and questionnaires collect self-reported data from large samples. Case studies provide in-depth analysis of individuals or small groups. Each method has strengths and limitations, and ethical considerations are crucial in psychological research, including informed consent, confidentiality, and minimizing harm to participants.</p>
+      <h3>Quiz</h3>
+      <form id="quiz3">
+        <div class="mb-3">
+          <p>1. Which method manipulates variables?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Observational study</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Experimental method</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Case study</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz3', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module4">
+      <div class="card-body">
+      <h2>Module 4: Biological Basis of Behavior</h2>
+      <p>The nervous system, including the brain and spinal cord, controls behavior. Neurons transmit signals via neurotransmitters like dopamine and serotonin. The brain's lobes handle different functions: frontal for decision-making and planning, parietal for sensation and spatial awareness, temporal for memory and language, occipital for vision. Hormones influence mood and behavior, such as cortisol in stress response. Genetics play a role in personality traits and mental disorders. Understanding the biological foundations helps explain why we behave the way we do and informs treatments for psychological conditions, from medication to brain stimulation techniques.</p>
+      <h3>Quiz</h3>
+      <form id="quiz4">
+        <div class="mb-3">
+          <p>1. Which brain lobe handles decision-making?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Parietal</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Frontal</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Occipital</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz4', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module5">
+      <div class="card-body">
+      <h2>Module 5: Learning and Memory</h2>
+      <p>Learning is the process of acquiring knowledge or skills through experience. Classical conditioning pairs stimuli to elicit responses, as Pavlov demonstrated with dogs. Operant conditioning uses rewards and punishments to shape behavior, developed by B.F. Skinner. Cognitive learning involves mental processes like insight and problem-solving. Memory includes sensory storage for immediate input, short-term working memory, and long-term storage for lasting knowledge. Encoding transforms information, storage maintains it, and retrieval accesses it. Forgetting can occur due to decay over time, interference from similar information, or retrieval failure. Understanding learning theories helps in education, therapy, and behavior modification across various settings.</p>
+      <h3>Quiz</h3>
+      <form id="quiz5">
+        <div class="mb-3">
+          <p>1. What pairs stimuli in conditioning?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Operant</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Classical</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Cognitive</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz5', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module6">
+      <div class="card-body">
+      <h2>Module 6: Personality and Social Psychology</h2>
+      <p>Personality traits influence how we interact with the world consistently. Theories include Freud's psychodynamic approach focusing on unconscious drives, trait theories like the Big Five (openness, conscientiousness, extraversion, agreeableness, neuroticism), and humanistic approaches emphasizing self-actualization. Social psychology studies how individuals behave in groups and social contexts. Attitudes shape our evaluations, conformity leads to group influence, obedience can result in following authority even against personal morals. Prejudice and discrimination stem from stereotypes. Interpersonal attraction and relationships are shaped by proximity, similarity, physical attractiveness, and reciprocity. Self-concept and self-esteem play crucial roles in mental health, affecting motivation and resilience. Understanding personality and social factors helps in personal development, improving social harmony, and addressing societal issues like bias and conflict.</p>
+      <h3>Quiz</h3>
+      <form id="quiz6">
+        <div class="mb-3">
+          <p>1. Social psychology studies?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Individual behavior in groups</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Animal behavior</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Plant growth</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz6', {q1:'a'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-success btn-lg" onclick="completeCourse()">Complete Course & Get Certificate</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function checkQuiz(quizId, answers) {
+      const form = document.getElementById(quizId);
+      const formData = new FormData(form);
+      let correct = 0;
+      let total = Object.keys(answers).length;
+      for (let [key, value] of formData.entries()) {
+        if (answers[key] === value) correct++;
+      }
+      alert(`You got ${correct} out of ${total} correct!`);
+    }
+
+    function completeCourse() {
+      window.location.href = '/quiz/intro';
+    }
+  </script>
+</body>
+</html></content>
+<parameter name="filePath">e:\mindsarthi ai\templates\course-intro.html

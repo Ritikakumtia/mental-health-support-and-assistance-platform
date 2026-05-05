@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Counselors — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 50px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold" style="color:#3b4a6b;">Our Professional Counselors</h1>
+          <p class="lead" style="color:#164a5f;">Connect with verified mental health professionals for personalized support.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold" style="color:#3b4a6b;">Why Choose Us?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="card-body text-white text-center">
+              <i class="bi bi-award-fill" style="font-size: 3rem; opacity: 0.8;"></i>
+              <h5 class="card-title fw-semibold mt-3">Experienced Professionals</h5>
+              <p class="card-text">Our counselors have years of experience in mental health support and therapy.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="card-body text-white text-center">
+              <i class="bi bi-heart-fill" style="font-size: 3rem; opacity: 0.8;"></i>
+              <h5 class="card-title fw-semibold mt-3">Personalized Support</h5>
+              <p class="card-text">Tailored sessions designed to meet your individual needs and goals.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="card-body text-white text-center">
+              <i class="bi bi-shield-lock-fill" style="font-size: 3rem; opacity: 0.8;"></i>
+              <h5 class="card-title fw-semibold mt-3">Confidential & Safe</h5>
+              <p class="card-text">Your privacy and confidentiality are our top priorities in all interactions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container py-5">
+    <h2 class="text-center mb-5 fw-bold" style="color:#3b4a6b;">Meet Our Professionals</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg border-start border-4 border-primary" style="border-radius: 12px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title fw-semibold mb-1"><i class="bi bi-person-circle text-primary me-2"></i>Dr. Anjali Verma</h5>
+                <span class="badge bg-primary">Stress & Anxiety</span>
+              </div>
+            </div>
+            <p class="card-text text-muted small mb-3">10+ years of experience helping clients manage stress and anxiety through evidence-based techniques.</p>
+            <div class="mb-3">
+              <p class="small mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i><strong>Phone:</strong> +91-90000XXXX1</p>
+              <p class="small mb-2"><i class="bi bi-envelope-fill text-primary me-2"></i><strong>Email:</strong> anjali@mindsarthi.com</p>
+              <p class="small"><i class="bi bi-clock-fill text-primary me-2"></i><strong>Availability:</strong> Mon-Fri, 9AM-5PM</p>
+            </div>
+            <a href="#request-counseling" class="btn btn-primary btn-sm w-100">Book Session</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg border-start border-4 border-danger" style="border-radius: 12px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title fw-semibold mb-1"><i class="bi bi-person-circle text-danger me-2"></i>Dr. Rajesh Kumar</h5>
+                <span class="badge bg-danger">Depression & Counseling</span>
+              </div>
+            </div>
+            <p class="card-text text-muted small mb-3">Specializes in depression treatment and provides compassionate counseling for emotional well-being.</p>
+            <div class="mb-3">
+              <p class="small mb-2"><i class="bi bi-telephone-fill text-danger me-2"></i><strong>Phone:</strong> +91-90000XXXX2</p>
+              <p class="small mb-2"><i class="bi bi-envelope-fill text-danger me-2"></i><strong>Email:</strong> rajesh@mindsarthi.com</p>
+              <p class="small"><i class="bi bi-clock-fill text-danger me-2"></i><strong>Availability:</strong> Tue-Sat, 10AM-6PM</p>
+            </div>
+            <a href="#request-counseling" class="btn btn-danger btn-sm w-100">Book Session</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg border-start border-4 border-success" style="border-radius: 12px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title fw-semibold mb-1"><i class="bi bi-person-circle text-success me-2"></i>Dr. Priya Sharma</h5>
+                <span class="badge bg-success">Relationship Counseling</span>
+              </div>
+            </div>
+            <p class="card-text text-muted small mb-3">Expert in relationship issues, helping couples and individuals build healthier connections.</p>
+            <div class="mb-3">
+              <p class="small mb-2"><i class="bi bi-telephone-fill text-success me-2"></i><strong>Phone:</strong> +91-90000XXXX3</p>
+              <p class="small mb-2"><i class="bi bi-envelope-fill text-success me-2"></i><strong>Email:</strong> priya@mindsarthi.com</p>
+              <p class="small"><i class="bi bi-clock-fill text-success me-2"></i><strong>Availability:</strong> Mon-Wed, 9AM-4PM</p>
+            </div>
+            <a href="#request-counseling" class="btn btn-success btn-sm w-100">Book Session</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg border-start border-4 border-warning" style="border-radius: 12px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title fw-semibold mb-1"><i class="bi bi-person-circle text-warning me-2"></i>Dr. Vikram Singh</h5>
+                <span class="badge bg-warning text-dark">Addiction Recovery</span>
+              </div>
+            </div>
+            <p class="card-text text-muted small mb-3">Dedicated to supporting individuals through addiction recovery with proven therapeutic methods.</p>
+            <div class="mb-3">
+              <p class="small mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i><strong>Phone:</strong> +91-90000XXXX4</p>
+              <p class="small mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i><strong>Email:</strong> vikram@mindsarthi.com</p>
+              <p class="small"><i class="bi bi-clock-fill text-warning me-2"></i><strong>Availability:</strong> Thu-Sun, 11AM-7PM</p>
+            </div>
+            <a href="#request-counseling" class="btn btn-warning btn-sm w-100 text-dark">Book Session</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg border-start border-4 border-info" style="border-radius: 12px;">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title fw-semibold mb-1"><i class="bi bi-person-circle text-info me-2"></i>Dr. Meera Patel</h5>
+                <span class="badge bg-info">Child Psychology</span>
+              </div>
+            </div>
+            <p class="card-text text-muted small mb-3">Focuses on child and adolescent mental health, providing gentle and effective therapy.</p>
+            <div class="mb-3">
+              <p class="small mb-2"><i class="bi bi-telephone-fill text-info me-2"></i><strong>Phone:</strong> +91-90000XXXX5</p>
+              <p class="small mb-2"><i class="bi bi-envelope-fill text-info me-2"></i><strong>Email:</strong> meera@mindsarthi.com</p>
+              <p class="small"><i class="bi bi-clock-fill text-info me-2"></i><strong>Availability:</strong> Mon-Fri, 8AM-3PM</p>
+            </div>
+            <a href="#request-counseling" class="btn btn-info btn-sm w-100">Book Session</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="py-5" id="request-counseling" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%);">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold" style="color:#3b4a6b;">Request Counseling Session</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-lg" style="border: none; border-radius: 15px; border-top: 5px solid #667eea;">
+            <div class="card-body p-5">
+              <form action="/counselors/request" method="post">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label fw-semibold" style="color:#3b4a6b;">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" style="border-radius: 8px; border: 1px solid #e0e7ff;" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="contact" class="form-label fw-semibold" style="color:#3b4a6b;">Contact Number</label>
+                    <input type="tel" class="form-control" id="contact" name="contact" placeholder="+91-9XXXXXXXXX" style="border-radius: 8px; border: 1px solid #e0e7ff;" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold" style="color:#3b4a6b;">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" style="border-radius: 8px; border: 1px solid #e0e7ff;" required>
+                </div>
+                <div class="mb-3">
+                  <label for="counselor" class="form-label fw-semibold" style="color:#3b4a6b;">Select Counselor</label>
+                  <select class="form-select" id="counselor" name="counselor" style="border-radius: 8px; border: 1px solid #e0e7ff;" required>
+                    <option value="">Choose a counselor...</option>
+                    <option value="Dr. Anjali Verma">Dr. Anjali Verma (Stress Management, Anxiety)</option>
+                    <option value="Dr. Rajesh Kumar">Dr. Rajesh Kumar (Depression, Counseling)</option>
+                    <option value="Dr. Priya Sharma">Dr. Priya Sharma (Relationship Counseling)</option>
+                    <option value="Dr. Vikram Singh">Dr. Vikram Singh (Addiction Recovery)</option>
+                    <option value="Dr. Meera Patel">Dr. Meera Patel (Child Psychology)</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-semibold" style="color:#3b4a6b;">What are you feeling? (Select all that apply)</label>
+                  <div class="row mt-2">
+                    <div class="col-md-6">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Anxious" id="anxious">
+                        <label class="form-check-label" for="anxious">Anxious</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Stressed" id="stressed">
+                        <label class="form-check-label" for="stressed">Stressed</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Frustrated" id="frustrated">
+                        <label class="form-check-label" for="frustrated">Frustrated</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Loneliness" id="loneliness">
+                        <label class="form-check-label" for="loneliness">Loneliness</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Family Pressure" id="family_pressure">
+                        <label class="form-check-label" for="family_pressure">Family Pressure</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="reasons" value="Other" id="other">
+                        <label class="form-check-label" for="other">Other</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label for="message" class="form-label fw-semibold" style="color:#3b4a6b;">Additional Message (Optional)</label>
+                  <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us more about what you're going through..." style="border-radius: 8px; border: 1px solid #e0e7ff; resize: vertical;"></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-lg" style="background: linear-gradient(120deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 8px; padding: 12px 40px;">Request Counseling Session</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

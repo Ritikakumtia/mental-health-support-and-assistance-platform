@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Quiz - Building Resilience - MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>"nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <div class="card shadow-lg rounded-4 mb-5 border-0">
+    <div class="card-body text-center py-5" style="background: linear-gradient(120deg, #e0f7ff 0%, #e2eafc 100%);">
+      <div class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Final Quiz</div>
+      <h1 class="display-5 fw-bold mb-3" style="color:#3b4a6b;">Building Resilience - Final Quiz</h1>
+      <p class="lead text-muted mb-2">Test your knowledge and complete the course with confidence.</p>
+      <p class="text-muted">Answer the questions carefully to earn your certificate and track your learning progress.</p>
+    </div>
+  </div>
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+<form action="/quiz_result/resilience" method="post">
+      <div class="mb-4">
+        <h5>1. Resilience is the ability to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="a" required>
+          <label class="form-check-label">Avoid all challenges</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="b">
+          <label class="form-check-label">Recover from difficulties and adapt</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="c">
+          <label class="form-check-label">Giving up quickly</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="d">
+          <label class="form-check-label">Refusing help completely</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Optimism in resilience involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="a" required>
+          <label class="form-check-label">Ignoring problems</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="b">
+          <label class="form-check-label">Maintaining hope and positive outlook</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="c">
+          <label class="form-check-label">Pretending everything is fine</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="d">
+          <label class="form-check-label">Dwelling on negative events</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. Problem-solving skills help build resilience by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="a" required>
+          <label class="form-check-label">Creating more problems</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="b">
+          <label class="form-check-label">Finding solutions to challenges</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="c">
+          <label class="form-check-label">Ignoring the issue</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="d">
+          <label class="form-check-label">Waiting for others to decide</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Social support enhances resilience through:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="a" required>
+          <label class="form-check-label">Isolation</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="b">
+          <label class="form-check-label">Emotional and practical help from others</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="c">
+          <label class="form-check-label">Showing no emotion</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="d">
+          <label class="form-check-label">Taking control of others</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>5. Self-care for resilience includes:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="a" required>
+          <label class="form-check-label">Neglecting health</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="b">
+          <label class="form-check-label">Exercise, sleep, and healthy eating</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="c">
+          <label class="form-check-label">Skipping meals</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="d">
+          <label class="form-check-label">Working nonstop</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>6. Flexibility in thinking helps with:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="a" required>
+          <label class="form-check-label">Rigid responses to change</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="b">
+          <label class="form-check-label">Adapting to new situations</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="c">
+          <label class="form-check-label">Sticking to one plan no matter what</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="d">
+          <label class="form-check-label">Avoiding new ideas</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>7. Gratitude practices build resilience by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="a" required>
+          <label class="form-check-label">Focusing on negatives</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="b">
+          <label class="form-check-label">Shifting focus to positive aspects</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="c">
+          <label class="form-check-label">Comparing yourself unfavorably</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="d">
+          <label class="form-check-label">Only focusing on past failures</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>8. Learning from adversity means:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="a" required>
+          <label class="form-check-label">Avoiding future challenges</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="b">
+          <label class="form-check-label">Gaining wisdom and strength from experiences</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="c">
+          <label class="form-check-label">Ignoring reality</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="d">
+          <label class="form-check-label">Repeating the same mistakes</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>9. Long-term resilience develops through:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="a" required>
+          <label class="form-check-label">Avoiding all stress</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="b">
+          <label class="form-check-label">Consistent practice and life experiences</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="c">
+          <label class="form-check-label">Immediate success without effort</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="d">
+          <label class="form-check-label">Avoiding feedback</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>10. Resilience protects mental health by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="a" required>
+          <label class="form-check-label">Increasing vulnerability</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="b">
+          <label class="form-check-label">Building coping skills and emotional strength</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="c">
+          <label class="form-check-label">Making problems worse</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="d">
+          <label class="form-check-label">Giving up quickly</label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Quiz</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 MindSarthi AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

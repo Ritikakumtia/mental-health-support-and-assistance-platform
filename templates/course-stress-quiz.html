@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Quiz - Stress Management - MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <div class="card shadow-lg rounded-4 mb-5 border-0">
+    <div class="card-body text-center py-5" style="background: linear-gradient(120deg, #e0f7ff 0%, #e2eafc 100%);">
+      <div class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Final Quiz</div>
+      <h1 class="display-5 fw-bold mb-3" style="color:#3b4a6b;">Stress Management - Final Quiz</h1>
+      <p class="lead text-muted mb-2">Test your knowledge and complete the course with confidence.</p>
+      <p class="text-muted">Answer the questions carefully to earn your certificate and track your learning progress.</p>
+    </div>
+  </div>
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+<form action="/quiz_result/stress" method="post">
+      <div class="mb-4">
+        <h5>1. Stress is best described as:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="a" required>
+          <label class="form-check-label">A positive feeling</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="b">
+          <label class="form-check-label">The body's response to demands or pressures</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="c">
+          <label class="form-check-label">A personality trait</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="d">
+          <label class="form-check-label">A choice you make</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Which hormone is released during stress?</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="a" required>
+          <label class="form-check-label">Cortisol</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="b">
+          <label class="form-check-label">Insulin</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="c">
+          <label class="form-check-label">Dopamine</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="d">
+          <label class="form-check-label">Thyroxine</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. Chronic stress can lead to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="a" required>
+          <label class="form-check-label">Improved health</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="b">
+          <label class="form-check-label">Heart disease and weakened immunity</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="c">
+          <label class="form-check-label">Better memory</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="d">
+          <label class="form-check-label">A stronger immune system</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Deep breathing is a technique for:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="a" required>
+          <label class="form-check-label">Increasing stress</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="b">
+          <label class="form-check-label">Reducing stress and promoting relaxation</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="c">
+          <label class="form-check-label">Making breathing shallow</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="d">
+          <label class="form-check-label">Distracting yourself from feelings</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>5. Exercise helps manage stress by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="a" required>
+          <label class="form-check-label">Increasing tension</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="b">
+          <label class="form-check-label">Releasing endorphins and improving mood</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="c">
+          <label class="form-check-label">Depleting energy</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="d">
+          <label class="form-check-label">Causing muscle tension</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>6. Time management helps reduce stress by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="a" required>
+          <label class="form-check-label">Creating more work</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="b">
+          <label class="form-check-label">Organizing tasks and reducing overwhelm</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="c">
+          <label class="form-check-label">Procrastinating tasks</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="d">
+          <label class="form-check-label">Doing everything at once</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>7. Social support during stress involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="a" required>
+          <label class="form-check-label">Isolating yourself</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="b">
+          <label class="form-check-label">Connecting with others for emotional support</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="c">
+          <label class="form-check-label">Ignoring others' feelings</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="d">
+          <label class="form-check-label">Keeping stress to yourself</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>8. Progressive muscle relaxation involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="a" required>
+          <label class="form-check-label">Tensing all muscles at once</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="b">
+          <label class="form-check-label">Systematically tensing and relaxing muscle groups</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="c">
+          <label class="form-check-label">Holding tension continuously</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="d">
+          <label class="form-check-label">Ignoring body signals</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>9. Mindfulness meditation helps with stress by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="a" required>
+          <label class="form-check-label">Increasing worry</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="b">
+          <label class="form-check-label">Focusing on the present moment</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="c">
+          <label class="form-check-label">Making problems worse</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="d">
+          <label class="form-check-label">Forgetting about stress entirely</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>10. Healthy sleep is important for stress management because:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="a" required>
+          <label class="form-check-label">It increases fatigue</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="b">
+          <label class="form-check-label">It restores energy and improves resilience</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="c">
+          <label class="form-check-label">It increases stress</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="d">
+          <label class="form-check-label">It causes nightmares</label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Quiz</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 MindSarthi AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

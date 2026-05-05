@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Quiz - Mindfulness - MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <div class="card shadow-lg rounded-4 mb-5 border-0">
+    <div class="card-body text-center py-5" style="background: linear-gradient(120deg, #e0f7ff 0%, #e2eafc 100%);">
+      <div class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Final Quiz</div>
+      <h1 class="display-5 fw-bold mb-3" style="color:#3b4a6b;">Mindfulness - Final Quiz</h1>
+      <p class="lead text-muted mb-2">Test your knowledge and complete the course with confidence.</p>
+      <p class="text-muted">Answer the questions carefully to earn your certificate and track your learning progress.</p>
+    </div>
+  </div>
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+<form action="/quiz_result/mindfulness" method="post">
+      <div class="mb-4">
+        <h5>1. Mindfulness is:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="a" required>
+          <label class="form-check-label">Worrying about the future</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="b">
+          <label class="form-check-label">Paying attention to the present moment without judgment</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="c">
+          <label class="form-check-label">Planning ahead constantly</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="d">
+          <label class="form-check-label">Remembering the past only</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Meditation in mindfulness involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="a" required>
+          <label class="form-check-label">Clearing the mind completely</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="b">
+          <label class="form-check-label">Observing thoughts and feelings as they arise</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="c">
+          <label class="form-check-label">Forcing thoughts to stop</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="d">
+          <label class="form-check-label">Talking through emotions loudly</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. Mindful eating means:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="a" required>
+          <label class="form-check-label">Eating quickly</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="b">
+          <label class="form-check-label">Paying full attention to the experience of eating</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="c">
+          <label class="form-check-label">Eating while distracted</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="d">
+          <label class="form-check-label">Ignoring hunger cues</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Mindfulness reduces stress by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="a" required>
+          <label class="form-check-label">Avoiding stressful situations</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="b">
+          <label class="form-check-label">Changing relationship to thoughts and feelings</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="c">
+          <label class="form-check-label">Holding in emotions</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" value="d">
+          <label class="form-check-label">Never thinking about feelings</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>5. Body scan meditation involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="a" required>
+          <label class="form-check-label">Physical exercise</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="b">
+          <label class="form-check-label">Systematically focusing attention on different body parts</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="c">
+          <label class="form-check-label">Watching TV while sitting</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" value="d">
+          <label class="form-check-label">Skipping rest entirely</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>6. Loving-kindness meditation cultivates:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="a" required>
+          <label class="form-check-label">Self-criticism</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="b">
+          <label class="form-check-label">Compassion and kindness toward self and others</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="c">
+          <label class="form-check-label">Self-focus only</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" value="d">
+          <label class="form-check-label">Being critical of others</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>7. Mindful communication involves:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="a" required>
+          <label class="form-check-label">Speaking without thinking</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="b">
+          <label class="form-check-label">Listening deeply and responding thoughtfully</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="c">
+          <label class="form-check-label">Interrupting others</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" value="d">
+          <label class="form-check-label">Speaking without listening</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>8. Mindfulness improves focus by:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="a" required>
+          <label class="form-check-label">Multitasking more</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="b">
+          <label class="form-check-label">Training the mind to stay present</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="c">
+          <label class="form-check-label">Using many devices at once</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" value="d">
+          <label class="form-check-label">Trying to memorize everything</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>9. Regular mindfulness practice leads to:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="a" required>
+          <label class="form-check-label">Increased anxiety</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="b">
+          <label class="form-check-label">Greater emotional regulation and well-being</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="c">
+          <label class="form-check-label">Less compassion</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q9" value="d">
+          <label class="form-check-label">More impulsive reactions</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h5>10. Mindfulness can be practiced:</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="a" required>
+          <label class="form-check-label">Only during formal meditation</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="b">
+          <label class="form-check-label">In everyday activities like walking and eating</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="c">
+          <label class="form-check-label">Only during special classes</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q10" value="d">
+          <label class="form-check-label">Only when alone</label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit Quiz</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 MindSarthi AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

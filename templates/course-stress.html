@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stress Management and Coping Strategies — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="badge bg-primary text-white px-3 py-2 rounded-pill mb-3">Course</div>
+          <h1 class="display-4 fw-bold mb-3" style="color:#3b4a6b;">Stress Management and Coping Strategies</h1>
+          <p class="lead fw-semibold mb-3" style="color:#667eea;">5 Modules | 3 Weeks</p>
+          <p style="color:#5a6c7d; font-size:1.05rem; line-height:1.8;">Explore this course through focused lessons, self-check quizzes and practical insights.</p>
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-info text-dark">Certificate Ready</span>
+            <span class="badge bg-success">Self-paced</span>
+            <span class="badge bg-warning text-dark">Practice Quizzes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="module card mb-5 shadow-lg rounded-4" id="module1">
+      <div class="card-body">
+      <h2>Module 1: Understanding Stress</h2>
+      <p>Stress is the body's response to challenging situations. It can be positive (eustress) or negative (distress). Learn to identify sources of stress and its effects on health.</p>
+      <h3>Quiz</h3>
+      <form id="quiz1">
+        <div class="mb-3">
+          <p>1. What is stress?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">A type of food</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">The body's response to challenges</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz1', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module2">
+      <div class="card-body">
+      <h2>Module 2: Coping Strategies</h2>
+      <p>Effective coping strategies include problem-solving, seeking support, relaxation techniques, and time management. Practice deep breathing and progressive muscle relaxation. Cognitive restructuring helps change negative thought patterns. Building a support network of friends and family provides emotional backing. Time management reduces overwhelm by prioritizing tasks. These strategies empower individuals to handle stress proactively rather than reactively.</p>
+      <h3>Quiz</h3>
+      <form id="quiz2">
+        <div class="mb-3">
+          <p>1. Which is a coping strategy?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Ignoring problems</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Deep breathing</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz2', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module3">
+      <div class="card-body">
+      <h2>Module 3: Stress and Health</h2>
+      <p>Chronic stress affects physical and mental health. It can lead to headaches, digestive issues, weakened immunity, and increased risk of heart disease. Mentally, it causes anxiety, depression, and cognitive impairment. Recognizing stress signals early allows for intervention. Lifestyle factors like diet, exercise, and sleep play crucial roles in stress management. Mindfulness practices reduce stress hormones. Understanding the mind-body connection helps in holistic health approaches.</p>
+      <h3>Quiz</h3>
+      <form id="quiz3">
+        <div class="mb-3">
+          <p>1. Chronic stress can lead to?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Improved immunity</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Heart disease risk</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz3', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module4">
+      <div class="card-body">
+      <h2>Module 4: Building Resilience</h2>
+      <p>Resilience is the ability to bounce back from adversity. It involves positive thinking, flexibility, and social support. Developing resilience starts with self-awareness and emotional regulation. Optimism helps reframe challenges as opportunities. Strong social connections provide buffers against stress. Learning from past experiences builds confidence. Mindfulness and gratitude practices enhance resilience. Resilient individuals adapt better to change and recover faster from setbacks.</p>
+      <h3>Quiz</h3>
+      <form id="quiz4">
+        <div class="mb-3">
+          <p>1. Resilience involves?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Avoiding challenges</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Bouncing back from adversity</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz4', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module5">
+      <div class="card-body">
+      <h2>Module 5: Long-term Stress Management</h2>
+      <p>Sustainable stress management requires lifestyle changes. Regular exercise reduces stress hormones and releases endorphins. Balanced nutrition supports brain function and energy levels. Quality sleep is essential for recovery and cognitive processing. Work-life balance prevents burnout. Setting boundaries protects personal time. Professional help through therapy provides tools for chronic stress. Integrating these practices creates a foundation for lasting well-being and prevents stress from becoming overwhelming.</p>
+      <h3>Quiz</h3>
+      <form id="quiz5">
+        <div class="mb-3">
+          <p>1. Regular exercise reduces?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Energy levels</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Stress hormones</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz5', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-success btn-lg" onclick="completeCourse()">Complete Course & Get Certificate</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function checkQuiz(quizId, answers) {
+      const form = document.getElementById(quizId);
+      const formData = new FormData(form);
+      let correct = 0;
+      let total = Object.keys(answers).length;
+      for (let [key, value] of formData.entries()) {
+        if (answers[key] === value) correct++;
+      }
+      alert(`You got ${correct} out of ${total} correct!`);
+    }
+
+    function completeCourse() {
+      window.location.href = '/quiz/stress';
+    }
+  </script>
+</body>
+</html></content>
+<parameter name="filePath">e:\mindsarthi ai\templates\course-stress.html

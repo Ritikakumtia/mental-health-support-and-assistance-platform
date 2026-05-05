@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Courses — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto">
+          <div class="text-center mb-4">
+            <i class="bi bi-book-half" style="font-size: 4rem; color: #667eea; opacity: 0.9;"></i>
+          </div>
+          <h1 class="display-4 fw-bold mb-3" style="color:#3b4a6b;">Psychology-Based Courses</h1>
+          <p class="lead fw-semibold mb-3" style="color:#667eea;">Learn essential psychology concepts and earn certificates upon completion.</p>
+          <p style="color:#5a6c7d; font-size: 1.05rem; line-height: 1.8;">In today's fast-paced world, mental health issues like stress, anxiety, loneliness, and frustration are on the rise, particularly among students facing academic pressure and social challenges. Our psychology-based courses are designed to empower you with knowledge, coping strategies, and self-awareness tools. By understanding the mind and emotions, you can better navigate life's difficulties, support yourself and others, and contribute to a healthier society. These courses are perfect for students, professionals, and anyone seeking personal growth and mental well-being.</p>
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-primary px-3 py-2">📚 6 Courses</span>
+            <span class="badge bg-success px-3 py-2">🎓 Certificates</span>
+            <span class="badge bg-danger px-3 py-2">👥 Expert Instructors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <h2 class="text-center mb-5 fw-bold" style="color:#3b4a6b;">Why Take Our Courses?</h2>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #667eea; border-radius: 12px;">
+          <div class="card-body">
+            <i class="bi bi-certificate" style="font-size: 2rem; color: #667eea;"></i>
+            <h5 class="card-title fw-semibold mt-3">Earn Certificates</h5>
+            <p class="card-text">Complete courses and earn verifiable certificates to showcase your achievements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #f5576c; border-radius: 12px;">
+          <div class="card-body">
+            <i class="bi bi-book-fill" style="font-size: 2rem; color: #f5576c;"></i>
+            <h5 class="card-title fw-semibold mt-3">Expert Content</h5>
+            <p class="card-text">Learn from psychology experts with comprehensive, evidence-based curriculum.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #00f2fe; border-radius: 12px;">
+          <div class="card-body">
+            <i class="bi bi-graph-up" style="font-size: 2rem; color: #00f2fe;"></i>
+            <h5 class="card-title fw-semibold mt-3">Personal Growth</h5>
+            <p class="card-text">Develop practical skills and knowledge for better mental health and well-being.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if current_user %}
+      <h2 class="text-center mb-5 fw-bold" style="color:#3b4a6b;">Our Courses</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #667eea; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-lightbulb-fill" style="font-size: 2rem; color: #667eea;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Introduction to Psychology</h5>
+              <p class="card-text text-muted small">Learn the fundamentals of psychology, including key theories, research methods, and basic concepts to build a strong foundation.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary">6 Modules</span>
+                <span class="badge bg-info">4 weeks</span>
+              </div>
+              <a href="/courses/introduction-to-psychology" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #667eea 0%, #764ba2 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #f5576c; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-heart-pulse-fill" style="font-size: 2rem; color: #f5576c;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Stress Management</h5>
+              <p class="card-text text-muted small">Discover effective techniques to manage stress, build resilience, and develop healthy coping mechanisms for daily challenges.</p>
+              <div class="mb-3">
+                <span class="badge bg-danger">5 Modules</span>
+                <span class="badge bg-info">3 weeks</span>
+              </div>
+              <a href="/courses/stress-management" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #f5576c 0%, #f093fb 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #fd7e14; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-exclamation-triangle-fill" style="font-size: 2rem; color: #fd7e14;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Understanding Anxiety</h5>
+              <p class="card-text text-muted small">Gain insights into anxiety and depression, their causes, symptoms, and evidence-based approaches for prevention and management.</p>
+              <div class="mb-3">
+                <span class="badge bg-warning text-dark">7 Modules</span>
+                <span class="badge bg-info">5 weeks</span>
+              </div>
+              <a href="/courses/understanding-anxiety" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #fd7e14 0%, #f5a962 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #20c997; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-people-fill" style="font-size: 2rem; color: #20c997;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Emotional Intelligence</h5>
+              <p class="card-text text-muted small">Enhance your emotional intelligence to improve relationships, academic performance, and personal well-being in student life.</p>
+              <div class="mb-3">
+                <span class="badge bg-success">4 Modules</span>
+                <span class="badge bg-info">3 weeks</span>
+              </div>
+              <a href="/courses/emotional-intelligence" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #20c997 0%, #12b886 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #6610f2; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-shield-check-fill" style="font-size: 2rem; color: #6610f2;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Building Resilience</h5>
+              <p class="card-text text-muted small">Learn to bounce back from setbacks, cultivate mental toughness, and thrive amidst adversity and uncertainty.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary">5 Modules</span>
+                <span class="badge bg-info">4 weeks</span>
+              </div>
+              <a href="/courses/building-resilience" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #6610f2 0%, #5a3fb5 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg border-0" style="border-top: 4px solid #00d4ff; border-radius: 12px;">
+            <div class="card-body">
+              <i class="bi bi-flower1" style="font-size: 2rem; color: #00d4ff;"></i>
+              <h5 class="card-title fw-semibold mt-2 mb-2">Mindfulness & Meditation</h5>
+              <p class="card-text text-muted small">Explore mindfulness practices and meditation techniques to reduce stress, improve focus, and achieve inner peace.</p>
+              <div class="mb-3">
+                <span class="badge bg-info">6 Modules</span>
+                <span class="badge bg-info">4 weeks</span>
+              </div>
+              <a href="/courses/mindfulness-meditation" class="btn btn-sm w-100" style="background: linear-gradient(120deg, #00d4ff 0%, #00a8cc 100%); border: none; color: white;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-lg" style="border: none; border-radius: 15px; border-top: 5px solid #667eea; background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%);">
+            <div class="card-body p-5 text-center">
+              <i class="bi bi-lock-fill" style="font-size: 3rem; color: #667eea;"></i>
+              <h4 class="card-title fw-bold mt-3 mb-2" style="color:#3b4a6b;">Sign In to Access Courses</h4>
+              <p class="card-text text-muted mb-4">To enroll in our psychology-based courses and earn certificates, you need to create an account or login.</p>
+              <a href="/login" class="btn btn-lg me-2" style="background: linear-gradient(120deg, #667eea 0%, #764ba2 100%); border: none; color: white;">Login</a>
+              <a href="/register" class="btn btn-lg" style="background: linear-gradient(120deg, #f5576c 0%, #f093fb 100%); border: none; color: white;">Create Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

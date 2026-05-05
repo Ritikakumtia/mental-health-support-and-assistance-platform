@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mindfulness and Meditation — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="badge bg-primary text-white px-3 py-2 rounded-pill mb-3">Course</div>
+          <h1 class="display-4 fw-bold mb-3" style="color:#3b4a6b;">Mindfulness and Meditation</h1>
+          <p class="lead fw-semibold mb-3" style="color:#667eea;">6 Modules | 4 Weeks</p>
+          <p style="color:#5a6c7d; font-size:1.05rem; line-height:1.8;">Explore this course through focused lessons, self-check quizzes and practical insights.</p>
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-info text-dark">Certificate Ready</span>
+            <span class="badge bg-success">Self-paced</span>
+            <span class="badge bg-warning text-dark">Practice Quizzes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="module card mb-5 shadow-lg rounded-4" id="module1">
+      <div class="card-body">
+      <h2>Module 1: Introduction to Mindfulness</h2>
+      <p>Mindfulness is paying attention to the present moment without judgment. It helps reduce stress and improve mental clarity.</p>
+      <h3>Quiz</h3>
+      <form id="quiz1">
+        <div class="mb-3">
+          <p>1. Mindfulness is?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Ignoring the present</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Paying attention to the present</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz1', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module2">
+      <div class="card-body">
+      <h2>Module 2: Meditation Techniques</h2>
+      <p>Learn breathing exercises, body scans, and guided meditations. Regular practice leads to better focus and emotional balance. Mindfulness meditation cultivates awareness of thoughts and feelings. Different techniques suit different needs. Consistent practice builds mental strength. Meditation reduces anxiety and improves sleep quality.</p>
+      <h3>Quiz</h3>
+      <form id="quiz2">
+        <div class="mb-3">
+          <p>1. Meditation helps with?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Increasing stress</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Better focus</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz2', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module3">
+      <div class="card-body">
+      <h2>Module 3: Mindful Living</h2>
+      <p>Apply mindfulness to daily activities like eating, walking, and working. Mindful living reduces automatic behaviors. It increases appreciation for simple moments. Practice brings awareness to routines. Mindful living enhances life satisfaction and reduces stress in everyday situations.</p>
+      <h3>Quiz</h3>
+      <form id="quiz3">
+        <div class="mb-3">
+          <p>1. Mindful living involves?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Rushing through activities</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Paying attention to daily activities</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz3', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module4">
+      <div class="card-body">
+      <h2>Module 4: Mindfulness for Stress</h2>
+      <p>Use mindfulness to manage stress and anxiety. Notice physical sensations without judgment. Practice acceptance of difficult emotions. Mindfulness breaks stress cycles. Regular practice builds emotional resilience. Mindful responses replace automatic reactions during stressful situations.</p>
+      <h3>Quiz</h3>
+      <form id="quiz4">
+        <div class="mb-3">
+          <p>1. Mindfulness for stress involves?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Ignoring stress</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Noticing sensations without judgment</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz4', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module5">
+      <div class="card-body">
+      <h2>Module 5: Mindfulness in Relationships</h2>
+      <p>Practice mindful communication and listening. Be present with others without distractions. Respond rather than react in conversations. Mindfulness improves empathy and understanding. It strengthens connections with loved ones. Mindful relationships create deeper, more meaningful interactions.</p>
+      <h3>Quiz</h3>
+      <form id="quiz5">
+        <div class="mb-3">
+          <p>1. Mindful relationships involve?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Being distracted</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Being present with others</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz5', {q1:'b'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="module card mb-5 shadow-lg rounded-4" id="module6">
+      <div class="card-body">
+      <h2>Module 6: Advanced Mindfulness Practices</h2>
+      <p>Explore loving-kindness meditation and mindful movement. Integrate mindfulness into challenging situations. Practice self-compassion and forgiveness. Advanced practices deepen awareness. They transform difficult experiences. Long-term mindfulness creates lasting positive changes in mental health and well-being.</p>
+      <h3>Quiz</h3>
+      <form id="quiz6">
+        <div class="mb-3">
+          <p>1. Advanced mindfulness includes?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Loving-kindness meditation</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Increasing judgment</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkQuiz('quiz6', {q1:'a'})">Submit Quiz</button>
+      </form>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-success btn-lg" onclick="completeCourse()">Complete Course & Get Certificate</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function checkQuiz(quizId, answers) {
+      const form = document.getElementById(quizId);
+      const formData = new FormData(form);
+      let correct = 0;
+      let total = Object.keys(answers).length;
+      for (let [key, value] of formData.entries()) {
+        if (answers[key] === value) correct++;
+      }
+      alert(`You got ${correct} out of ${total} correct!`);
+    }
+
+    function completeCourse() {
+      window.location.href = '/quiz/mindfulness';
+    }
+  </script>
+</body>
+</html></content>
+<parameter name="filePath">e:\mindsarthi ai\templates\course-mindfulness.html

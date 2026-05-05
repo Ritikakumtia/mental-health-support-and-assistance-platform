@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — MindSarthi AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">MindSarthi AI</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/counselors">Counselors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hospitals">Hospitals</a></li>
+          <li class="nav-item"><a class="nav-link" href="/doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          {% if current_user %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout ({{ current_user.username }})</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border-radius: 0 0 40px 40px; box-shadow: 0 8px 32px rgba(80,120,255,0.10); padding: 50px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold" style="color:#3b4a6b;">About MindSarthi AI</h1>
+          <p class="lead" style="color:#164a5f;">Bridging Technology and Professional Care for Mental Wellness</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto">
+        <h2 class="fw-bold mb-4" style="color:#3b4a6b;">Our Mission</h2>
+        <p class="lead">MindSarthi AI is an AI-Powered Mental Health Support & Assistance Platform designed to provide comprehensive mental health services to people of all ages. We bridge the gap between technology and professional care, offering both AI-driven support and access to verified mental health professionals.</p>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto">
+        <h2 class="fw-bold mb-4" style="color:#3b4a6b;">What We Offer</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #667eea; border-radius: 12px;">
+              <div class="card-body">
+                <i class="bi bi-telephone-fill" style="font-size: 2rem; color: #667eea;"></i>
+                <h5 class="card-title fw-semibold mt-3">Professional Counseling</h5>
+                <p class="card-text">Connect with verified and trusted mental health professionals for personalized support.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #f5576c; border-radius: 12px;">
+              <div class="card-body">
+                <i class="bi bi-book-fill" style="font-size: 2rem; color: #f5576c;"></i>
+                <h5 class="card-title fw-semibold mt-3">Psychology Courses</h5>
+                <p class="card-text">Learn essential psychology concepts through structured courses and earn certificates upon completion.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #667eea; border-radius: 12px;">
+              <div class="card-body">
+                <i class="bi bi-chat-dots-fill" style="font-size: 2rem; color: #667eea;"></i>
+                <h5 class="card-title fw-semibold mt-3">AI Chatbot</h5>
+                <p class="card-text">An empathetic conversational assistant for immediate support, reflection, and coping strategies.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0" style="border-left: 4px solid #00f2fe; border-radius: 12px;">
+              <div class="card-body">
+                <i class="bi bi-shield-lock-fill" style="font-size: 2rem; color: #00f2fe;"></i>
+                <h5 class="card-title fw-semibold mt-3">Privacy & Security</h5>
+                <p class="card-text">All services prioritize user privacy and data protection with industry-standard encryption.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="alert" style="background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%); border: none; border-radius: 12px; border-left: 4px solid #667eea;">
+          <h5 class="fw-bold" style="color:#3b4a6b;">Why Choose MindSarthi AI?</h5>
+          <p class="mb-0">With psychological cases increasing daily, we provide accessible, affordable, and professional mental health support. Our platform serves all age groups and combines the best of AI technology with human expertise to ensure comprehensive care.</p>
+        </div>
+        <p class="text-danger mt-3"><strong>⚠️ In Crisis?</strong> If you or anyone is in crisis, contact your local emergency services or crisis hotline immediately.</p>
+      </div>
+    </div>
+
+    <hr class="my-5">
+    <h2 class="mb-5 fw-bold text-center" style="color:#3b4a6b;">Our Team</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; border-top: 4px solid #667eea;">
+          <div class="card-body text-center">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #667eea;"></i>
+            <h5 class="card-title fw-semibold mt-3">Mayank Singh</h5>
+            <p class="mb-2"><span class="badge bg-primary">Team Leader</span></p>
+            <p class="small text-muted">Backend & Machine Learning</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; border-top: 4px solid #f5576c;">
+          <div class="card-body text-center">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #f5576c;"></i>
+            <h5 class="card-title fw-semibold mt-3">Ritika Kumtia</h5>
+            <p class="mb-2"><span class="badge bg-danger">Frontend & UX</span></p>
+            <p class="small text-muted">Design, accessibility & UI</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; border-top: 4px solid #00f2fe;">
+          <div class="card-body text-center">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #00f2fe;"></i>
+            <h5 class="card-title fw-semibold mt-3">Pankaj Airee</h5>
+            <p class="mb-2"><span class="badge bg-info">Data & Evaluation</span></p>
+            <p class="small text-muted">Dataset, metrics & testing</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-lg border-0" style="border-radius: 12px; border-top: 4px solid #fd7e14;">
+          <div class="card-body text-center">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #fd7e14;"></i>
+            <h5 class="card-title fw-semibold mt-3">Ayush Joshi</h5>
+            <p class="mb-2"><span class="badge bg-warning text-dark">Integration & DevOps</span></p>
+            <p class="small text-muted">Deployment, CI & infra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto text-center">
+        <p class="lead">Thanks for checking out our project. We welcome feedback and collaboration — <a href="/contact" class="fw-semibold" style="color: #667eea; text-decoration: none;">reach us from the Contact page</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
